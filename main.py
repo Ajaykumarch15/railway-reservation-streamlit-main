@@ -147,7 +147,7 @@ def view_seats(train_number):
         "SELECT * FROM trains WHERE train_number = ?", (train_number,))
     train_data = train_query.fetchone()
     if train_data:
-        # return train_data
+        # train data is going to be returned here
         seat_query = c.execute(
             f'''SELECT 'Number : ' || seat_number, '\n Type : '  || seat_type ,'\n Name : ' ||  passenger_name , '\n Age : ' || passenger_age ,'\n Gender : ' ||  passenger_gender as Details, booked  FROM seats_{train_number} ORDER BY seat_number asc''')
         result = seat_query.fetchall()
